@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sign-up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body class=" bg-secondary bg-gradient p-2 text-white bg-oppacity-75">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="max-auto" style="width: 400px;" >
+       
+        <form action="/action_page.php">
+          
+            <div class="mb-3 mt-3">
+                <label for="name" class="form-label">Name:</label>
+                <input
+                  type="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter name"
+                  name="name"
+                  
+                />
+
+                <small id="name-error" class="text-danger"></small>
+              </div>
+
+              <div class="mb-3 mt-3">
+                <label for="name" class="form-label">ID:</label>
+                <input
+                  type="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter ID"
+                  name="name"
+                />
+                <small id="ID-error" class="text-danger"></small>
+              </div>
+
+
+
+              <div class="mb-3 mt-3">
+                <label for="phone" class="form-label">phone:</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  placeholder="(xxx-xxx-xxxx):"
+                  name="phone"
+                  oninput="formatPhoneNumber(this)"
+                 
+
+                  required
+                />
+                <div class="invalid-feedback">please enter a valid phone number(xxx-xxx-xxxx).</div>
+              
+                <script>
+                    function formatPhoneNumber(input) {
+                      var value = input.value;
+                      value = value.replace(/\D/g, '');
+                      value = value.substring(0, 10);
+                      var formatted = value.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+                      input.value = formatted;
+                    }
+                    </script>
+            
+            
+            
+            
+            </div>
+             
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <div class="mb-3 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+            />
+
+            <small id="email" class="text-danger"></small>
+          </div>
+    
+    
+    
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd"> 
+            <small id="pwd-error" class="text-danger"></small>
+          </div>
+    
+    
+          <div class="form-check mb-3">
+            
+    
+                <button onclick="validateForm()"class="btn btn-primary">register</button>
+                
+            </div>
+
+        
+
+
+
+
+             <script>
+                function validateForm() {
+                  var fields = [
+                    { id: 'name', errorId: 'name-error', errorMsg: 'Please enter your name.' },
+                    
+                    { id: 'ID', errorId: 'ID-error', errorMsg: 'Please enter a valid email address.' },
+                    { id: 'email', errorId: 'email-error', errorMsg: 'Please enter a valid email address.' },
+                    { id: 'pwd', errorId: 'pwd-error', errorMsg: 'Please enter a valid email address.' },
+                  ];
+                
+                  var hasError = false;
+                
+                  fields.forEach(function(field) {
+                    var input = document.getElementById(field.id);
+                    var error = document.getElementById(field.errorId);
+                
+                    if (input.value.trim() === '') {
+                      error.textContent = field.errorMsg;
+                      input.classList.add('is-invalid');
+                      hasError = true;
+                    } else {
+                      error.textContent = '';
+                      input.classList.remove('is-invalid');
+                    }
+                  });
+                
+                  if (!hasError) {
+                    // Form gönderme işlemleri
+                  }
+                }
+                </script> 
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
